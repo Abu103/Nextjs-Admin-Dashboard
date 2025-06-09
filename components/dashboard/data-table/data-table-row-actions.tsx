@@ -13,16 +13,16 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Payment } from "./columns" // Import the Payment type we defined
+import { Payment } from "@/lib/types" // Import the Payment type
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
 }
 
+// THE FIX IS HERE: The "export" keyword makes this function available to other files.
 export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
-  // We can get the original data object for the row like this
   const payment = row.original as Payment
 
   return (

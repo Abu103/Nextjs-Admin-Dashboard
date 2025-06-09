@@ -3,29 +3,28 @@
 
 import { ColumnDef, Row } from "@tanstack/react-table"
 import { Badge } from "@/components/ui/badge"
-import { DataTableRowActions } from "./data-table-row-actions" // <-- THE CORRECTED IMPORT
+import { DataTableRowActions } from "./data-table-row-actions"
+import { Payment } from "@/lib/types"
 
-export type Payment = {
-  id: string
-  amount: number
-  status: "pending" | "processing" | "success" | "failed"
-  email: string
-}
+// This is the type for the Badge's variant prop
+type BadgeVariant = "default" | "secondary" | "destructive" | "outline";
 
 export const paymentColumns: ColumnDef<Payment>[] = [
   {
     accessorKey: "status",
     header: "Status",
     cell: ({ row }: { row: Row<Payment> }) => {
-      const status = row.getValue("status") as string
-      const variant = {
+      const status = row.getValue("status") as string;
+      const variantMap: Record<string, BadgeVariant> = {
         pending: "secondary",
         processing: "outline",
         success: "default",
         failed: "destructive",
-      }[status] ?? "default"
+      };
+      const variant = variantMap[status] ?? "default";
 
-      return <Badge variant={variant as any}>{status}</Badge>
+      // THE FIX: We now use the specific BadgeVariant type instead of 'any'
+      return <Badge variant={variant}>{status}</Badge>;
     },
   },
   {
@@ -36,17 +35,17 @@ export const paymentColumns: ColumnDef<Payment>[] = [
     accessorKey: "amount",
     header: () => <div className="text-right">Amount</div>,
     cell: ({ row }: { row: Row<Payment> }) => {
-      const amount = parseFloat(row.getValue("amount"))
+      const amount = parseFloat(row.getValue("amount"));
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",
         currency: "USD",
-      }).format(amount)
+      }).format(amount);
 
-      return <div className="text-right font-medium">{formatted}</div>
+      return <div className="text-right font-medium">{formatted}</div>;
     },
   },
   {
     id: "actions",
     cell: ({ row }: { row: Row<Payment> }) => <DataTableRowActions row={row} />,
   },
-]
+];
