@@ -1,10 +1,9 @@
-// app/(dashboard)/settings/_components/settings-form.tsx
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { toast } from "sonner" // <-- 1. Import from "sonner"
+import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -41,7 +40,6 @@ export function SettingsForm() {
   })
 
   function onSubmit(data: SettingsFormValues) {
-    // 2. Use the new toast function
     toast.success("Settings Updated!", {
       description: "Your changes have been successfully saved.",
     })
@@ -49,7 +47,6 @@ export function SettingsForm() {
   }
 
   return (
-    // 3. Notice there is NO <Toaster /> component here anymore. It's in the root layout.
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-lg">
         <FormField

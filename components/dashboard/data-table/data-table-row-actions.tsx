@@ -1,4 +1,3 @@
-// components/dashboard/data-table/data-table-row-actions.tsx
 "use client"
 
 import { Row } from "@tanstack/react-table"
@@ -13,13 +12,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Payment } from "@/lib/types" // Import the Payment type
+import { Payment } from "@/lib/types"
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>
 }
 
-// THE FIX IS HERE: The "export" keyword makes this function available to other files.
 export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {

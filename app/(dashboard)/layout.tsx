@@ -1,4 +1,4 @@
-"use client" // Add this if you use motion on the root element of the layout
+"use client" 
 
 import Header from "@/components/layout/header"
 import Sidebar from "@/components/layout/sidebar"

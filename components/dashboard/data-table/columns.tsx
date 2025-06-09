@@ -1,4 +1,3 @@
-// components/dashboard/data-table/columns.tsx
 "use client"
 
 import { ColumnDef, Row } from "@tanstack/react-table"
@@ -6,7 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { DataTableRowActions } from "./data-table-row-actions"
 import { Payment } from "@/lib/types"
 
-// This is the type for the Badge's variant prop
 type BadgeVariant = "default" | "secondary" | "destructive" | "outline";
 
 export const paymentColumns: ColumnDef<Payment>[] = [
@@ -23,7 +21,6 @@ export const paymentColumns: ColumnDef<Payment>[] = [
       };
       const variant = variantMap[status] ?? "default";
 
-      // THE FIX: We now use the specific BadgeVariant type instead of 'any'
       return <Badge variant={variant}>{status}</Badge>;
     },
   },

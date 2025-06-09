@@ -9,7 +9,6 @@ import { ThemeToggle } from "./theme-toggle"
 export default function Header() {
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-sm md:px-6">
-      {/* Mobile Nav */}
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="shrink-0 md:hidden">
@@ -18,7 +17,6 @@ export default function Header() {
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
-          {/* We can reuse the same nav items logic as the sidebar */}
           <nav className="grid gap-6 text-lg font-medium">
              <Link href="#" className="flex items-center gap-2 text-lg font-semibold">
                 <Package className="h-6 w-6" />
@@ -30,7 +28,6 @@ export default function Header() {
         </SheetContent>
       </Sheet>
 
-      {/* Search and User Nav */}
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
         <form className="ml-auto flex-1 sm:flex-initial">
           <div className="relative">

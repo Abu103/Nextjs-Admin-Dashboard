@@ -1,5 +1,4 @@
-// app/(dashboard)/page.tsx
-"use client"; // This page uses client components like the dynamic chart
+"use client"; 
 
 import dynamic from "next/dynamic";
 import {
@@ -16,7 +15,7 @@ import { DataTable } from "@/components/dashboard/data-table/data-table";
 import { paymentColumns } from "@/components/dashboard/data-table/columns";
 import { Skeleton } from "@/components/ui/skeleton";
 import { payments } from "@/lib/placeholder-data";
-import { Payment } from "@/lib/types"; // <-- 1. IMPORT THE PAYMENT TYPE
+import { Payment } from "@/lib/types";
 
 const OverviewChart = dynamic(
   () => import("@/components/dashboard/overview-chart"),
@@ -84,12 +83,10 @@ export default function DashboardPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {/* ▼▼▼ THE FIX IS HERE ▼▼▼ */}
           <DataTable<Payment, unknown>
             columns={paymentColumns}
             data={payments}
           />
-          {/* ▲▲▲ THE FIX IS HERE ▲▲▲ */}
         </CardContent>
       </Card>
     </div>

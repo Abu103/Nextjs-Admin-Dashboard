@@ -1,5 +1,3 @@
-// lib/types.ts
-
 export type Payment = {
   id: string;
   amount: number;

@@ -1,4 +1,3 @@
-// components/dashboard/stats-card.tsx
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { LucideIcon } from "lucide-react"
@@ -10,7 +9,6 @@ interface StatsCardProps {
   icon: LucideIcon
 }
 
-// Make sure you are using export default
 export default function StatsCard({ title, value, change, icon: Icon }: StatsCardProps) {
   return (
     <Card>

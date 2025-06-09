@@ -1,4 +1,3 @@
-// components/dashboard/overview-chart.tsx
 "use client"
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"

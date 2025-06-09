@@ -1,5 +1,3 @@
-// components/dashboard/recent-sales.tsx
-
 import {
   Avatar,
   AvatarFallback,

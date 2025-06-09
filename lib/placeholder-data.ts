@@ -1,9 +1,5 @@
-// lib/placeholder-data.ts
-
 import { Payment } from "./types";
 
-// THE FIX IS HERE: We explicitly tell TypeScript this is an array of Payment objects.
-// This preserves the strict type for the 'status' property.
 export const payments: Payment[] = [
   { id: "728ed52f", amount: 100, status: "pending", email: "m@example.com" },
   { id: "489e1d42", amount: 125, status: "processing", email: "example@gmail.com" },
